@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DesignPatternLearn.Structual
+{
+    internal class ProxyDemo : IPatternDemo
+    {
+        public string Name => "Proxy";
+        public void Run()
+        {
+        }
+    }
+}
