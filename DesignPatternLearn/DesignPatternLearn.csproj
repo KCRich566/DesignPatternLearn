@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Behavioral\ChainOfResponsibilitycsDemo.cs" />
+    <Compile Include="Behavioral\ChainOfResponsibilityDemo.cs" />
     <Compile Include="Behavioral\CommandDemo.cs" />
     <Compile Include="Behavioral\InterpreterDemo.cs" />
     <Compile Include="Behavioral\IteratorDemo.cs" />
