@@ -9,9 +9,15 @@ using System.Threading.Tasks;
 
 namespace DesignPatternLearn.Creational
 {
-    // Simple Factory (簡單工廠) demo
-    // - 將物件建立邏輯集中在一個地方 (factory)
-    // - 客戶端透過 factory 請求產品，而不直接 new 具體類別
+    // Simple Factory（簡單工廠）
+    // 核心思想：將物件建立邏輯集中在一個工廠類別（Factory），
+    //   客戶端透過工廠請求產品，而不直接 new 具體類別，
+    //   達到建立與使用的解耦。
+    // 使用情境：當產品種類有限且不會頻繁變動時，可用簡單工廠集中管理建立邏輯。
+    // 真實案例：
+    //   1. 資料庫驅動程式工廠——根據設定建立 SQL Server / MySQL / SQLite 的連線物件。
+    //   2. 圖形編輯器——根據使用者選擇建立 Circle / Rectangle / Triangle 等圖形物件。
+    //   3. 日誌輸出器——根據組態建立 FileLogger / ConsoleLogger / DatabaseLogger。
     internal class SimpleFactoryDemo : IPatternDemo
     {
         public string Name => "Factory Method (simple)";

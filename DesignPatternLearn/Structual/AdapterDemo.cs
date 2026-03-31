@@ -6,6 +6,15 @@ using System.Threading.Tasks;
 
 namespace DesignPatternLearn.Structual
 {
+    // Adapter（轉接器模式）
+    // 核心思想：將一個類別的介面轉換成客戶端期望的另一個介面，
+    //   讓原本介面不相容的類別能夠協同工作。
+    //   分為「物件轉接器（Object Adapter）」與「類別轉接器（Class Adapter）」兩種實作方式。
+    // 使用情境：當你想複用現有類別，但其介面與目前系統要求不相容時。
+    // 真實案例：
+    //   1. 舊系統 Logger 適配新介面——如本範例，將 LegacyLogger 包裝成 IAppLogger。
+    //   2. 第三方支付 SDK 適配——將不同支付服務（PayPal、Stripe）的 API 轉換成統一的 IPaymentGateway 介面。
+    //   3. 資料格式轉換——將 XML 資料源的輸出轉換為 JSON 格式供新系統使用。
     internal class AdapterDemo : IPatternDemo
     {
         public string Name => "Adapter";

@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace DesignPatternLearn.Creational
 {
-    // Singleton模式: 確保一個類別只有一個實例，並提供一個全局訪問點。
+    // Singleton 模式（單例模式）
+    // 核心思想：確保一個類別只有一個實例，並提供一個全域存取點。
+    // 使用情境：當系統中某個物件只應存在一份，且需要被多處共用時。
+    // 真實案例：
+    //   1. 日誌記錄器（Logger）——整個應用程式共用同一個 Logger 實例，避免重複建立。
+    //   2. 資料庫連線池（Connection Pool）——確保只有一個連線池管理所有連線。
+    //   3. 應用程式組態管理（Configuration Manager）——讀取設定檔只需一份實例。
 
     // atomic: 原子性 (Atomicity) 是指一個操作要麼完全執行，要麼完全不執行，不會被中斷。
-    // 這裡的 Singleton 實現是原子性的，因為靜態初始化在 .NET 中是線程安全的。
+    // 這裡的 Singleton 實現是原子性的，因為靜態初始化在 .NET 中是執行緒安全的。
 
     // internal: 這個類別只能在同一個程序集 (Assembly) 中訪問，
     // 也就是說, 如果其他專案引入了這個專案, 就無法訪問這個類別。
@@ -53,7 +59,7 @@ namespace DesignPatternLearn.Creational
         public static SingletonEager Instance => _instance;
     }
 
-    // Lazy是延遲初始化, 及延遲建立實力, 
+    // Lazy 是延遲初始化，即延遲建立實例，只在第一次存取時才建立物件。
     internal sealed class SingletonLazy
     {
         private static readonly Lazy<SingletonLazy> _instance = new Lazy<SingletonLazy>(() => new SingletonLazy());

@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 
 namespace DesignPatternLearn.Behavioral
 {
-    // 核心目標： 有許多可以處理的競爭者
-    // 請求沿著責任鏈（Chain）傳遞，每個處理者都有機會處理它。
-    // 處理者可以選擇處理請求、傳遞給下一個處理者，或中止傳遞（短路）。
-    // 這能達到發送者與接收者的解耦、便於擴展與動態重組鏈路。
+    // Chain of Responsibility（責任鏈模式）
+    // 核心思想：請求沿著責任鏈（Chain）傳遞，每個處理者都有機會處理它。
+    //   處理者可以選擇處理請求、傳遞給下一個處理者，或中止傳遞（短路）。
+    //   這能達到發送者與接收者的解耦、便於擴展與動態重組鏈路。
     //
-    // 適用情境：
-    // - 多個物件可能處理同一請求，且不想將請求者與特定處理者耦合。
-    // - 需要能動態改變處理順序或在運行時插入/移除處理節點。
+    // 使用情境：
+    //   - 多個物件可能處理同一請求，且不想將請求者與特定處理者耦合。
+    //   - 需要能動態改變處理順序或在執行時期插入/移除處理節點。
+    // 真實案例：
+    //   1. 經費核准流程——如本範例，Manager → Director → CEO 依金額逐級審核。
+    //   2. HTTP 中介軟體（Middleware）——ASP.NET Core 的 Request Pipeline，請求依序通過多個 Middleware。
+    //   3. 客服工單系統——工單從第一線客服 → 主管 → 技術專家逐級升級處理。
     internal class ChainOfResponsibilityDemo : IPatternDemo
     {
         public string Name => "Chain of Responsibility";
